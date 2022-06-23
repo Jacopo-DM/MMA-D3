@@ -1,3 +1,8 @@
+# === PROJECT SPECIFIC === #
+python/ec-colors/output/
+python/ec-colors/output/*
+python/ec-colors/.vscode/
+python/ec-colors/.vscode/*
 # === VSCODE === #
 .vscode/*
 !.vscode/settings.json
