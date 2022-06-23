@@ -36,6 +36,10 @@ npm run dev -- --open
 
 You can now open the website by going to `http://localhost:3000`
 
+## Important Notes
+
+Please disable ad-blockers and script-blockers when opening the local host, this may cause some javascript errors that make the program run slower
+
 <!-- ## Building
 
 To create a production version of your app:
