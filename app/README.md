@@ -1,5 +1,28 @@
 
-### Installing Node
+# Downloading The Repo
+To start with, we have to download this repository with the command:
+```
+git clone git@github.com:Jacopo-DM/MMA-D3.git
+```
+For the moment, before this branch gets merged with the `main` branch, you'll have to git-checkout the specific branch
+
+```
+git checkout -b svelte-testing
+```
+
+# Getting The Data
+The app expects there to be a folder named `smallest` with `jpg` images, at the location:
+```
+/MMA-D3/app/static/smallest
+```
+This will be the data found in the zip file in our shared google drive called `smallest.zip`
+
+To load a different folder of images, add the images to the `static` folder and change the following `index.svelte` line to match the change:
+
+```
+<Mesh imageFolder={'smallest'} imageExt={'jpg'} />
+```
+# Installing Node
 The app runs using NodeJS, this can be downloaded and installed [here][1].
 
 This will give you accesses to the node-package-manager (`npm` for short).
@@ -13,7 +36,7 @@ node -v
 # Check the version of npm
 npm -v
 ```
-#### Mac OSX
+## Mac OSX
 
 Installation of NodeJS is OS-specific of course, the simplest way for mac users is to use [homebrew][2], using:
 
@@ -21,7 +44,7 @@ Installation of NodeJS is OS-specific of course, the simplest way for mac users 
 brew install node
 ```
 
-## Developing
+# Developing
 
 Once you've downloaded the project, and opened the `app` directory in your command line, you have to install the project dependencies with `npm install`
 
