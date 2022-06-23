@@ -7,7 +7,7 @@
 	import pm from '../assets/painting.json';
 
 	// Init
-	const fractionToUse = 1;
+	const fractionToUse = 0.05;
 	const numOfPaintings = Math.floor(23246 * fractionToUse);
 	const numOfSides = 6;
 	const numOfMeshes = Math.floor(numOfPaintings / numOfSides);
