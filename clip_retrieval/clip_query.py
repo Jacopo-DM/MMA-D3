@@ -3,12 +3,16 @@
 
 def clip_query(query, indice_folder="../index/", num_results=10, threshold=None):
     """Entry point of clip filter"""
+    import matplotlib.pyplot as plt
 
     import faiss  # pylint: disable=import-outside-toplevel
     import torch  # pylint: disable=import-outside-toplevel
     from pathlib import Path  # pylint: disable=import-outside-toplevel
     import pandas as pd  # pylint: disable=import-outside-toplevel
     import clip  # pylint: disable=import-outside-toplevel
+    from sklearn.decomposition import PCA
+
+    import umap
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model, _ = clip.load("ViT-B/32", device=device, jit=False)
@@ -50,12 +54,32 @@ def clip_query(query, indice_folder="../index/", num_results=10, threshold=None)
         d = d[0]
 
     result=[]
+    paths=[]
+    scores=[]
+    vectors=[]
+
     for score, ei in zip(d, i):
         path = image_list[ei]
-        print(ei)
-        result.append((path, score))
+        vectors.append(index.reconstruct(int(ei)))
+        paths.append(path)
+        scores.append(score)
+
+
+    umap_result = umap.UMAP(n_neighbors=5,
+                          min_dist=0.3,
+                          metric='correlation').fit_transform(vectors)
+
+    #pca = PCA(n_components=2)
+    #pca.fit(vectors)
+    #pca_result = pca.transform(vectors)
+
+    plt.scatter(umap_result[:,0], umap_result[:,1])
+    plt.show()
+
+    result = list(zip(paths, scores, umap_result))
+
     return result
 
 
 if __name__ == "__main__":
-    print(clip_query("abstract"))
+    print(clip_query("animals", num_results=30))
