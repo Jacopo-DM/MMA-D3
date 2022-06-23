@@ -1,22 +1,31 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+### Installing Node
+The app runs using NodeJS, this can be downloaded and installed [here][1].
 
-## Creating a project
+This will give you accesses to the node-package-manager (`npm` for short).
 
-If you're seeing this, you've probably already done this step. Congrats!
+You can verify that `node` and `npm` are correctly installed on your system by running the following commands:
 
 ```bash
-# create a new project in the current directory
-npm init svelte
+# Check the version of Node
+node -v
 
-# create a new project in my-app
-npm init svelte my-app
+# Check the version of npm
+npm -v
+```
+#### Mac OSX
+
+Installation of NodeJS is OS-specific of course, the simplest way for mac users is to use [homebrew][2], using:
+
+```bash
+brew install node
 ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've downloaded the project, and opened the `app` directory in your command line, you have to install the project dependencies with `npm install`
+
+Finally, we can start a development server with:
 
 ```bash
 npm run dev
@@ -25,7 +34,9 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+You can now open the website by going to `http://localhost:3000`
+
+<!-- ## Building
 
 To create a production version of your app:
 
@@ -35,4 +46,7 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment. -->
+
+[1]: https://nodejs.org/en/about/
+[2]: https://brew.sh/
